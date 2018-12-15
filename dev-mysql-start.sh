@@ -4,7 +4,6 @@
 DEV_PATH=$(pwd)
 MYSQL_MASTER_CONF="$DEV_PATH/dev/mysql-master-conf"
 MYSQL_SLAVE_CONF="$DEV_PATH/dev/mysql-slave-conf"
-SPHINX_CONF="$DEV_PATH/dev/sphinx-conf"
 
 USER="ec2-user"
 MYSQL_IMAGE="mysql:5.7.24"
