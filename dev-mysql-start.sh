@@ -49,9 +49,12 @@ mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_
 
 echo "creating database & dump"
 mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -AN -e "create database $MYSQL_DATABASE_NAME"
+mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -AN -e "SET GLOBAL log_bin_trust_function_creators=ON;"
 mysqldump --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD $MYSQL_DATABASE_NAME  > dump.sql
+
 docker cp dump.sql mysql-slave:.
 mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -AN -e "create database $MYSQL_DATABASE_NAME"
+mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -AN -e "SET GLOBAL log_bin_trust_function_creators=ON;"
 mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD $MYSQL_DATABASE_NAME < dump.sql
 rm -rf dump.sql
 
