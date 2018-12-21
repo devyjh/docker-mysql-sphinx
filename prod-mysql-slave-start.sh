@@ -49,7 +49,7 @@ Master_Position="$(mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uro
 Master_File="$(mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -e 'show master status \G' | grep File | sed -n -e 's/^.*: //p')"
 
 echo "set SLAVE to upstream MASTER"
-mysql --host $MYSQL_SLAVE_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_SLAVE_ROOT_PASSWORD -AN -e "change master to master_host='mysql-master',master_user='$MYSQL_REPLICATION_USER',master_password='$MYSQL_REPLICATION_PASSWORD',master_log_file='$Master_File',master_log_pos=$Master_Position;"
+mysql --host $MYSQL_SLAVE_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_SLAVE_ROOT_PASSWORD -AN -e "change master to master_host='$MYSQL_MASTER_ADDRESS',master_user='$MYSQL_REPLICATION_USER',master_password='$MYSQL_REPLICATION_PASSWORD',master_log_file='$Master_File',master_log_pos=$Master_Position;"
 
 echo "start sync: MASTER to SLAVE"
 mysql --host $MYSQL_SLAVE_ADDRESS -P $MYSQL_SLAVE_PORT -uroot -p$MYSQL_SLAVE_ROOT_PASSWORD -AN -e "start slave;"
