@@ -69,4 +69,4 @@ transaction_isolation = REPEATABLE-READ
 interactive_timeout = 600
 
 # added by yjh 2017-09-04 #
-server-id = 1
+server-id = 2
