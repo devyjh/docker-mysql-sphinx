@@ -1,0 +1,72 @@
+[mysqld]
+# GENERAL #
+user                           = mysql
+default-storage-engine         = InnoDB
+socket                         = /var/lib/mysql/mysql.sock
+pid-file                       = /var/run/mysqld/mysqld.pid
+
+# MyISAM #
+key-buffer-size                = 256M
+#myisam-recover             = FORCE,BACKUP
+
+# SAFETY #
+max-allowed-packet             = 1G
+max-connect-errors             = 10000
+skip-name-resolve
+
+# DATA STORAGE #
+datadir                        = /var/lib/mysql
+
+# BINARY LOGGING #
+log-bin                        = mysql-bin
+expire-logs-days               = 8
+sync-binlog                    = 1
+
+# CACHES AND LIMITS #
+tmp-table-size                 = 512M
+max-heap-table-size            = 512M
+query-cache-type               = 0
+query-cache-size               = 0
+max-connections                = 2048
+thread-cache-size              = 32
+open-files-limit               = 5000
+table-definition-cache         = 1471
+table-open-cache               = 1471
+
+# INNODB #
+innodb-flush-method            = O_DIRECT
+innodb-log-files-in-group      = 2
+innodb-log-file-size           = 5G
+innodb-flush-log-at-trx-commit = 1
+innodb-file-per-table          = 1
+innodb-buffer-pool-size        = 44G
+
+# LOGGING #
+log-error                      = /var/log/mysqld.log
+#log-queries-not-using-indexes  = 1
+slow-query-log                 = 1
+slow-query-log-file            = /var/log/mysql/mysql-slow.log
+
+# added by yjh 2017-08-08 #
+sql_mode =
+symbolic-links = 0
+validate-password = off
+
+# added by Ihyeon 2017-08-24 #
+init_connect = SET collation_connection = utf8_general_ci
+init_connect = SET NAMES euckr
+character-set-server = utf8
+collation-server = utf8_general_ci
+max_user_connections = 10240
+log_slow_admin_statements
+long_query_time = 5
+innodb_log_buffer_size = 8M
+innodb_lock_wait_timeout = 60
+innodb_thread_concurrency = 8
+join_buffer_size = 8M
+sort_buffer_size = 8M
+transaction_isolation = REPEATABLE-READ
+interactive_timeout = 600
+
+# added by yjh 2017-09-04 #
+server-id = 1
