@@ -32,7 +32,7 @@ docker run --name mysql-slave \
         -d $MYSQL_IMAGE
         
 ## mysql setting
-echo "waiting mysql for 30sec"
+echo "waiting mysql for 60sec"
 sleep 60
 
 echo "creating database & dump"

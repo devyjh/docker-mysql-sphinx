@@ -29,7 +29,7 @@ docker run --name mysql-master \
         -d $MYSQL_IMAGE
  
 ## mysql setting
-echo "waiting mysql for 30sec"
+echo "waiting mysql for 60sec"
 sleep 60
 
 echo "creating replication user in MASTER MYSQL"
