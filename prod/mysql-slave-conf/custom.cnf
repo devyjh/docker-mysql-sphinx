@@ -7,7 +7,7 @@ pid-file                       = /var/run/mysqld/mysqld.pid
 
 # MyISAM #
 key-buffer-size                = 256M
-#myisam-recover             = FORCE,BACKUP
+#myisam-recover                = FORCE,BACKUP
 
 # SAFETY #
 max-allowed-packet             = 1G
@@ -27,7 +27,7 @@ tmp-table-size                 = 512M
 max-heap-table-size            = 512M
 query-cache-type               = 0
 query-cache-size               = 0
-max-connections                = 2048
+max-connections                = 10240
 thread-cache-size              = 32
 open-files-limit               = 5000
 table-definition-cache         = 1471
@@ -50,14 +50,18 @@ slow-query-log-file            = /var/log/mysql/mysql-slow.log
 # added by yjh 2017-08-08 #
 sql_mode =
 symbolic-links = 0
-validate-password = off
+validate_password_policy = LOW
+validate-password-mixed-case-count = 0
+validate-password-length = 1
+validate-password-special-char-count = 0
 
 # added by Ihyeon 2017-08-24 #
 init_connect = SET collation_connection = utf8_general_ci
 init_connect = SET NAMES euckr
 character-set-server = utf8
 collation-server = utf8_general_ci
-max_user_connections = 10240
+max_user_connections = 1024
+table_open_cache = 2048
 log_slow_admin_statements
 long_query_time = 5
 innodb_log_buffer_size = 8M
