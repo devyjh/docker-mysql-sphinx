@@ -50,10 +50,7 @@ slow-query-log-file            = /var/log/mysql/mysql-slow.log
 # added by yjh 2017-08-08 #
 sql_mode =
 symbolic-links = 0
-validate_password_policy = LOW
-validate-password-mixed-case-count = 0
-validate-password-length = 1
-validate-password-special-char-count = 0
+#validate-password = off
 
 # added by Ihyeon 2017-08-24 #
 init_connect = SET collation_connection = utf8_general_ci
