@@ -33,7 +33,7 @@ docker run --name mysql-slave \
         
 ## mysql setting
 echo "waiting mysql for 30sec"
-sleep 30
+sleep 60
 
 echo "creating database & dump"
 mysqldump --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD $MYSQL_DATABASE_NAME > dump.sql

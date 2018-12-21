@@ -30,7 +30,7 @@ docker run --name mysql-master \
  
 ## mysql setting
 echo "waiting mysql for 30sec"
-sleep 30
+sleep 60
 
 echo "creating replication user in MASTER MYSQL"
 mysql --host $MYSQL_MASTER_ADDRESS -P $MYSQL_MASTER_PORT -uroot -p$MYSQL_MASTER_ROOT_PASSWORD -AN -e "create user '$MYSQL_REPLICATION_USER'@'%';"
