@@ -5,13 +5,16 @@ default-storage-engine         = InnoDB
 #socket                         = /var/lib/mysql/mysql.sock
 #pid-file                       = /var/run/mysqld/mysqld.pid
 
+# Accept connections from any IP address
+bind-address	            = 0.0.0.0
+
 # MyISAM #
 key-buffer-size                = 256M
 #myisam-recover             = FORCE,BACKUP
 
 # SAFETY #
 max-allowed-packet             = 1G
-max-connect-errors             = 10000
+max-connect-errors             = 1024
 skip-name-resolve
 
 # DATA STORAGE #
@@ -27,16 +30,16 @@ tmp-table-size                 = 512M
 max-heap-table-size            = 512M
 query-cache-type               = 0
 query-cache-size               = 0
-max-connections                = 10000
+max-connections                = 4096
 thread-cache-size              = 32
-open-files-limit               = 60000
+open-files-limit               = 10000
 table-definition-cache         = 1471
 table-open-cache               = 1471
 
 # INNODB #
 innodb-flush-method            = O_DIRECT
 innodb-log-files-in-group      = 2
-innodb-log-file-size           = 5G
+innodb-log-file-size           = 1G
 innodb-flush-log-at-trx-commit = 1
 innodb-file-per-table          = 1
 innodb-buffer-pool-size        = 44G
