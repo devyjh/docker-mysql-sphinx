@@ -27,9 +27,9 @@ tmp-table-size                 = 512M
 max-heap-table-size            = 512M
 query-cache-type               = 0
 query-cache-size               = 0
-max-connections                = 10240
+max-connections                = 10000
 thread-cache-size              = 32
-open-files-limit               = 5000
+open-files-limit               = 60000
 table-definition-cache         = 1471
 table-open-cache               = 1471
 
@@ -58,7 +58,7 @@ init_connect = SET NAMES euckr
 character-set-server = utf8
 collation-server = utf8_general_ci
 max_user_connections = 1024
-table_open_cache = 2048
+table_open_cache = 1024
 log_slow_admin_statements
 long_query_time = 5
 innodb_log_buffer_size = 8M
