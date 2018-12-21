@@ -2,12 +2,12 @@
 # GENERAL #
 user                           = mysql
 default-storage-engine         = InnoDB
-socket                         = /var/lib/mysql/mysql.sock
-pid-file                       = /var/run/mysqld/mysqld.pid
+#socket                         = /var/lib/mysql/mysql.sock
+#pid-file                       = /var/run/mysqld/mysqld.pid
 
 # MyISAM #
 key-buffer-size                = 256M
-#myisam-recover                = FORCE,BACKUP
+#myisam-recover             = FORCE,BACKUP
 
 # SAFETY #
 max-allowed-packet             = 1G
@@ -15,7 +15,7 @@ max-connect-errors             = 10000
 skip-name-resolve
 
 # DATA STORAGE #
-datadir                        = /var/lib/mysql
+#datadir                        = /var/lib/mysql
 
 # BINARY LOGGING #
 log-bin                        = mysql-bin
@@ -42,10 +42,10 @@ innodb-file-per-table          = 1
 innodb-buffer-pool-size        = 44G
 
 # LOGGING #
-log-error                      = /var/log/mysqld.log
+#log-error                      = /var/log/mysqld.log
 #log-queries-not-using-indexes  = 1
 slow-query-log                 = 1
-slow-query-log-file            = /var/log/mysql/mysql-slow.log
+#slow-query-log-file            = /var/log/mysql/mysql-slow.log
 
 # added by yjh 2017-08-08 #
 sql_mode =
