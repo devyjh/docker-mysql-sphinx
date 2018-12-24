@@ -141,13 +141,6 @@ join_buffer_size = 8M
 # improvement if you have a good thread implementation.)
 thread_cache_size = 8
 
-# This permits the application to give the threads system a hint for the
-# desired number of threads that should be run at the same time.  This
-# value only makes sense on systems that support the thread_concurrency()
-# function call (Sun Solaris, for example).
-# You should try [number of CPUs]*(2..4) for thread_concurrency
-thread_concurrency = 8
-
 # Query cache is used to cache SELECT results and later return them
 # without actual executing the same query once again. Having the query
 # cache enabled may result in significant speed improvements, if your
