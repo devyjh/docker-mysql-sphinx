@@ -4,7 +4,6 @@
 DEV_PATH=$(pwd)
 SPHINX_CONF="$DEV_PATH/dev/sphinx-conf"
 SPHINX_CONF_FILE="$SPHINX_CONF/sphinx.conf"
-sed "s/<mysql-slave-host>/$1/g" $SPHINX_CONF_FILE # sehllscript parameter in cloud init script
 
 USER="ec2-user"
 SPHINX_IMAGE="mustit/sphinx"
